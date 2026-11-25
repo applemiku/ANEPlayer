@@ -1,0 +1,25 @@
+# 构建产物（体积大、可重新生成）
+build/
+build-*/
+*.o
+*.dylib
+*.dSYM/
+vendor/
+
+# macOS 杂物
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# 编辑器
+.vscode/
+.idea/
+*.xcuserstate
+
+# 本地调试产物
+/tmp/
+*.log
+
+# 发布临时文件
+.release-notes-*.md

@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: none;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#niconicomments-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  object-fit: contain;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* 渲染库的 CSS 模式把舞台写死成「16:9 内接视口」，--dm-unit 也按高度算：
+   层一变矮（显示区域 25%）它就把整块内容缩到中间一个小方块里，字号跟着变四分之一。
+   这里改成铺满整层、单位按宽度算 —— 跟 canvas 模式的换算一致，
+   于是「层变矮」只意味着少几行，字不会被缩小，位置也不会被居中挤到中间。 */
+[data-dm-css-container] {
+  width: 100vw !important;
+  height: 100vh !important;
+  --dm-unit: calc(100vw / 1920) !important;
+}
